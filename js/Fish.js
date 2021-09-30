@@ -27,11 +27,22 @@ AFRAME.registerComponent("fish", {
       property: "position",
       to: "100 10 -20",
       loop: "true",
-      dur: 20000
+      dur: 20000,
     });
 
     fishEl.setAttribute("animation-mixer", {});
 
+    //set the static body attribute of physics system 
+    fishEl.setAttribute("static-body", {
+      shape: "sphere",
+      sphereRadius: 2
+    });
+
+     //set the game play attribute
+     fishEl.setAttribute("game-play", {
+      elementId: `#${id}`,
+    });
+
     fishModelEntity.appendChild(fishEl);
   }
-})
+});
